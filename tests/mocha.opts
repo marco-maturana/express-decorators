@@ -1,0 +1,5 @@
+# mocha.opts
+--colors
+--ui bdd
+--require ts-node/register
+tests/express-decorator.test.ts
