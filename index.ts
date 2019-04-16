@@ -1,3 +1,7 @@
-export function teste () {
-  console.log("teste")
+import "reflect-metadata";
+
+import { Authentication } from "./libs/decorator-authentication";
+
+export {
+  Authentication
 }
