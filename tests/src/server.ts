@@ -1,4 +1,5 @@
 import express from "express";
+import bodyParser from "body-parser";
 import path from "path";
 import { RouteExplorer } from "../../index";
 
@@ -11,6 +12,9 @@ export default async function () {
     controllersPath,
     server
   });
+
+  server.use(bodyParser.urlencoded({ extended: false }));
+  server    console.log("body", req.body).use(bodyParser.json());
 
   await routeExplorer.loadControllers();
 
