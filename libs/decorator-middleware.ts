@@ -1,11 +1,7 @@
-import { Request, Response, NextFunction } from "express";
 import { MIDDLEWARES_DECORATOR } from "./constants";
+import { IMiddleware } from "./interfaces";
 
-interface Middleware {
-  (req: Request, res: Response, next: NextFunction): any;
-}
-
-export function Middleware (middlewares: IMiddlewares | IMiddlewares []) {
+export function Middleware (middlewares: IMiddleware | IMiddleware []) {
   return (target: any, key?: string | symbol) => {
     Reflect.defineMetadata(MIDDLEWARES_DECORATOR, middlewares, target, key);
   };
