@@ -29,7 +29,7 @@ export class Controller {
 
   @Patch("/patch")
   patch (req: Request, res: Response): Response {
-    return res.json(req.body.data);
+    return res.json(req.body);
   }
 
   @Delete("/delete/:key")

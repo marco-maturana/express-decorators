@@ -38,7 +38,7 @@ describe("decorators tests", function () {
 
   it ("patch", async function () {
     const response = await axios.patch("/patch", {
-      data: { message: "ok" }
+      message: "ok"
     })
 
     expect(response.data).to.include.all.keys("message");
