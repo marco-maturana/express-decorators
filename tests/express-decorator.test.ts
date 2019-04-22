@@ -44,4 +44,11 @@ describe("decorators tests", function () {
     expect(response.data).to.include.all.keys("message");
     expect(response.data.message).to.equal("ok");
   });
+
+  it ("delete", async function () {
+    const response = await axios.delete("/delete/0")
+
+    expect(response.data).to.include.all.keys("key");
+    expect(response.data.key).to.equal("0");
+  });
 });

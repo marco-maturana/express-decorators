@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Get, Patch, Post, Put, Route } from "../../index";
+import { Get, Patch, Post, Put, Route, Delete } from "../../index";
 
 @Route("/controller")
 export class Controller {
@@ -22,6 +22,11 @@ export class Controller {
   @Patch("/patch")
   patch (req: Request, res: Response): Response {
     return res.json(req.body.data);
+  }
+
+  @Delete("/delete/:key")
+  delete (req: Request, res: Response): Response {
+    return res.json({ key: req.params.key });
   }
 }
 
