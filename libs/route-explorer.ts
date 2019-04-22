@@ -55,7 +55,7 @@ export class RouteExplorer {
   }
 
   private get defaultControllerPath (): string {
-    return path.join(path.resolve("./"), "./dist/src/controllers/**/*js");
+    return path.join(path.resolve("./"), "./dist/src/controllers/**/*.js");
   }
 
   private async searchControllers (directory: string): Promise<void> {
