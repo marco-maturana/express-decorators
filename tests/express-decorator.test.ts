@@ -26,4 +26,13 @@ describe("decorators tests'", function () {
     expect(response.data).to.include.all.keys("message");
     expect(response.data.message).to.equal("ok");
   });
+
+  it ("put", async function () {
+    const response = await axios.put("/put", {
+      message: "ok"
+    })
+
+    expect(response.data).to.include.all.keys("message");
+    expect(response.data.message).to.equal("ok");
+  });
 });

@@ -14,7 +14,7 @@ export default async function () {
   });
 
   server.use(bodyParser.urlencoded({ extended: false }));
-  server    console.log("body", req.body).use(bodyParser.json());
+  server.use(bodyParser.json());
 
   await routeExplorer.loadControllers();
 

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Get, Post, Route } from "../../index";
+import { Get, Post, Put, Route } from "../../index";
 
 @Route("/controller")
 export class Controller {
@@ -10,6 +10,11 @@ export class Controller {
 
   @Post("/post")
   post (req: Request, res: Response): Response {
+    return res.json(req.body);
+  }
+
+  @Put("/put")
+  put (req: Request, res: Response): Response {
     return res.json(req.body);
   }
 }
