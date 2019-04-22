@@ -51,4 +51,13 @@ describe("decorators tests", function () {
     expect(response.data).to.include.all.keys("key");
     expect(response.data.key).to.equal("0");
   });
+
+  it ("options", async function () {
+    const response = await (<any>axios).options("/options", {
+      data: { message: "ok" }
+    })
+
+    expect(response.data).to.include.all.keys("message");
+    expect(response.data.message).to.equal("ok");
+  });
 });

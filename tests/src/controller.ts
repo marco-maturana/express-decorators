@@ -1,5 +1,13 @@
 import { Request, Response } from "express";
-import { Get, Patch, Post, Put, Route, Delete } from "../../index";
+import {
+  Delete,
+  Get,
+  Options,
+  Patch,
+  Post,
+  Put,
+  Route
+} from "../../index";
 
 @Route("/controller")
 export class Controller {
@@ -27,6 +35,11 @@ export class Controller {
   @Delete("/delete/:key")
   delete (req: Request, res: Response): Response {
     return res.json({ key: req.params.key });
+  }
+
+  @Options("/options")
+  options (req: Request, res: Response): Response {
+    return res.json(req.body);
   }
 }
 
