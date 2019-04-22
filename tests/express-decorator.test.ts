@@ -14,6 +14,7 @@ describe("decorators tests", function () {
       params: { message: "ok" }
     })
 
+    expect(response.status).to.equal(200);
     expect(response.data).to.include.all.keys("message");
     expect(response.data.message).to.equal("ok");
   });
@@ -23,6 +24,7 @@ describe("decorators tests", function () {
       message: "ok"
     })
 
+    expect(response.status).to.equal(200);
     expect(response.data).to.include.all.keys("message");
     expect(response.data.message).to.equal("ok");
   });
@@ -32,6 +34,7 @@ describe("decorators tests", function () {
       message: "ok"
     })
 
+    expect(response.status).to.equal(200);
     expect(response.data).to.include.all.keys("message");
     expect(response.data.message).to.equal("ok");
   });
@@ -41,6 +44,7 @@ describe("decorators tests", function () {
       message: "ok"
     })
 
+    expect(response.status).to.equal(200);
     expect(response.data).to.include.all.keys("message");
     expect(response.data.message).to.equal("ok");
   });
@@ -48,6 +52,7 @@ describe("decorators tests", function () {
   it ("delete", async function () {
     const response = await axios.delete("/delete/0")
 
+    expect(response.status).to.equal(200);
     expect(response.data).to.include.all.keys("key");
     expect(response.data.key).to.equal("0");
   });
@@ -57,6 +62,7 @@ describe("decorators tests", function () {
       data: { message: "ok" }
     })
 
+    expect(response.status).to.equal(200);
     expect(response.data).to.include.all.keys("message");
     expect(response.data.message).to.equal("ok");
   });
