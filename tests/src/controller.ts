@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
-import { Get, Post, Put, Route } from "../../index";
+import { Get, Patch, Post, Put, Route } from "../../index";
 
 @Route("/controller")
 export class Controller {
+
   @Get("/get")
   get (req: Request, res: Response): Response {
     return res.json(req.query);
@@ -16,6 +17,11 @@ export class Controller {
   @Put("/put")
   put (req: Request, res: Response): Response {
     return res.json(req.body);
+  }
+
+  @Patch("/patch")
+  patch (req: Request, res: Response): Response {
+    return res.json(req.body.data);
   }
 }
 
