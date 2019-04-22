@@ -6,12 +6,15 @@ import {
 import { IMiddleware, IMethod } from "./interfaces";
 
 export class ControllerExplorer {
+  private readonly controller: any;
   private readonly controllerClass: any;
   private readonly middlewareAuthentication: IMiddleware;
 
   constructor (controllerClass: any, middlewareAuthentication?: IMiddleware) {
     this.controllerClass = controllerClass;
     this.middlewareAuthentication = middlewareAuthentication;
+
+    this.controller = new controllerClass()
   }
 
   methods (): IMethod[] {
