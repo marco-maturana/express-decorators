@@ -1,20 +1,17 @@
 import {
   AUTHENTICATION_DECORATOR,
-  MIDDLEWARES_DECORATOR,
+  MIDDLEWARE_DECORATOR,
   ROUTE_DECORATOR
 } from "./constants";
 import { IMiddleware, IMethod } from "./interfaces";
 
 export class ControllerExplorer {
-  private readonly controller: any;
   private readonly controllerClass: any;
   private readonly middlewareAuthentication: IMiddleware;
 
   constructor (controllerClass: any, middlewareAuthentication?: IMiddleware) {
     this.controllerClass = controllerClass;
     this.middlewareAuthentication = middlewareAuthentication;
-
-    this.controller = new controllerClass()
   }
 
   methods (): IMethod[] {
@@ -49,7 +46,7 @@ export class ControllerExplorer {
       }
     }
 
-    const middleware = Reflect.getMetadata(MIDDLEWARES_DECORATOR, this.controllerClass, propertyKey);
+    const middleware = Reflect.getMetadata(MIDDLEWARE_DECORATOR, this.controllerClass, propertyKey);
 
     if (middleware) middlewares.push(middleware);
 
