@@ -5,7 +5,7 @@ const enum RequestMethod {
   GET = "get",
   DELETE = "delete",
   PUT = "put",
-  PATCH = "path",
+  PATCH = "patch",
   OPTIONS = "options",
   HEAD = "head",
   ALL = "all"
