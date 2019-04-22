@@ -14,6 +14,25 @@ export class ControllerExplorer {
     this.middlewareAuthentication = middlewareAuthentication;
   }
 
+  methods (): IMethod[] {
+    const methods: IMethod[] = [ ];
+
+    const properties = Object.getOwnPropertyNames(this.controllerClass.prototype);
+
+    properties.forEach((property: string) => {
+      const metadata = Reflect.getMetadata(ROUTE_DECORATOR, this.controllerClass.prototype, property);
+
+      if (metadata) methods.push({
+        methodName: property,
+        methodPath: metadata.path,
+        middlewares: this.middlewares(property),
+        requestMethod: metadata.method
+      });
+    });
+
+    return methods;
+  }
+
   middlewares (propertyKey?: string) {
     const middlewares: IMiddleware[] = [ ];
 
@@ -33,37 +52,10 @@ export class ControllerExplorer {
 
     return middlewares;
   }
+
+  path (): string {
+    return Reflect.getMetadata(ROUTE_DECORATOR, this.controllerClass);
+  }
 }
 
-export function middlewares (controllerClass: any, propertyKey?: string): IMiddleware [] {
-  const middlewares: IMiddleware[] = [ ];
-
-  const middleware = Reflect.getMetadata(MIDDLEWARES_DECORATOR, controllerClass, propertyKey);
-
-  if (middleware) middlewares.push(middleware);
-
-  return middlewares;
-}
-
-export function path (controllerClass: any): string {
-  return Reflect.getMetadata(ROUTE_DECORATOR, controllerClass);
-}
-
-export function methods (controllerClass: any): IMethod[] {
-  const methods: IMethod[] = [ ];
-
-  const properties = Object.getOwnPropertyNames(controllerClass.prototype);
-
-  properties.forEach((property: string) => {
-    const metadata = Reflect.getMetadata(ROUTE_DECORATOR, controllerClass.prototype, property);
-
-    if (metadata) methods.push({
-      methodName: property,
-      methodPath: metadata.path,
-      middlewares: middlewares(controllerClass.prototype, property),
-      requestMethod: metadata.method
-    });
-  });
-
-  return methods;
-}
+export default ControllerExplorer;
