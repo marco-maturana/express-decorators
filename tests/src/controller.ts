@@ -6,7 +6,8 @@ import {
   Patch,
   Post,
   Put,
-  Route
+  Route,
+  Head
 } from "../../index";
 
 @Route("/controller")
@@ -40,6 +41,11 @@ export class Controller {
   @Options("/options")
   options (req: Request, res: Response): Response {
     return res.json(req.body);
+  }
+
+  @Head("/head")
+  head (_req: Request, res: Response): Response {
+    return res.sendStatus(200);
   }
 }
 

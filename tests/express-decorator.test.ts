@@ -60,4 +60,10 @@ describe("decorators tests", function () {
     expect(response.data).to.include.all.keys("message");
     expect(response.data.message).to.equal("ok");
   });
+
+  it ("head", async function () {
+    const response = await axios.head("/head")
+
+    expect(response.status).to.equal(200);
+  });
 });
