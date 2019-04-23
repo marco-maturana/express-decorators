@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import { RouteExplorer } from "../../index";
+import authentication from "./middlewares/authentication";
 
 export default async function () {
   const controllersPath = path.join(path.resolve("./"), "./dist/tests/src/controllers/**/*.js");
@@ -10,7 +11,8 @@ export default async function () {
 
   const routeExplorer = new RouteExplorer({
     controllersPath,
-    server
+    server,
+    middlewareAuthentication: authentication,
   });
 
   server.use(bodyParser.urlencoded({ extended: false }));
