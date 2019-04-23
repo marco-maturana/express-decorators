@@ -72,4 +72,14 @@ describe("decorators tests", function () {
 
     expect(response.status).to.equal(200);
   });
+
+  it ("all", async function () {
+    const response = await axios.put("/all", {
+       message: "ok"
+    })
+
+    expect(response.status).to.equal(200);
+    expect(response.data).to.include.all.keys("all", "message");
+    expect(response.data.message).to.equal("ok");
+  });
 });
