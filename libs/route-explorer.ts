@@ -38,7 +38,7 @@ export class RouteExplorer {
         if (methods.length) {
           const router = Router();
           const controller = new ControllerClass();
-          const middlewares = controllerExplorer.middlewares(ControllerClass);
+          const middlewares = controllerExplorer.middlewares();
 
           middlewares.forEach((middleware: IMiddleware) => {
             router.use(middleware);
