@@ -34,9 +34,11 @@ export class ControllerExplorer {
   }
 
   middlewares (propertyKey?: string) {
+    const controllerClass = (propertyKey) ? this.controllerClass.prototype : this.controllerClass;
+
     const middlewares: IMiddleware[] = [ ];
 
-    const authentication = Reflect.getMetadata(AUTHENTICATION_DECORATOR, this.controllerClass, propertyKey);
+    const authentication = Reflect.getMetadata(AUTHENTICATION_DECORATOR, controllerClass, propertyKey);
 
     if (authentication) {
       if (!this.middlewareAuthentication) {
@@ -46,7 +48,7 @@ export class ControllerExplorer {
       }
     }
 
-    const middleware = Reflect.getMetadata(MIDDLEWARE_DECORATOR, this.controllerClass, propertyKey);
+    const middleware = Reflect.getMetadata(MIDDLEWARE_DECORATOR, controllerClass, propertyKey);
 
     if (middleware) middlewares.push(middleware);
 
