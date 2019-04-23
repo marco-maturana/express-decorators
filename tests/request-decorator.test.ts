@@ -6,7 +6,7 @@ describe("decorators tests", function () {
   before(async function () {
     await server();
 
-    axios.defaults.baseURL = 'http://localhost:8000/controller';
+    axios.defaults.baseURL = 'http://localhost:8000/request-controller';
   })
 
   it ("get", async function () {

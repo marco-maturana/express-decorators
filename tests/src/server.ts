@@ -4,7 +4,7 @@ import path from "path";
 import { RouteExplorer } from "../../index";
 
 export default async function () {
-  const controllersPath = path.join(path.resolve("./"), "./dist/tests/src/controller.js");
+  const controllersPath = path.join(path.resolve("./"), "./dist/tests/src/controllers/**/*.js");
 
   const server = express();
 

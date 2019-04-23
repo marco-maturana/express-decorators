@@ -9,10 +9,10 @@ import {
   Post,
   Put,
   Route
-} from "../../index";
+} from "../../../index";
 
-@Route("/controller")
-export class Controller {
+@Route("/request-controller")
+export class RequestController {
 
   @Get("/get")
   get (req: Request, res: Response): Response {
@@ -63,4 +63,4 @@ export class Controller {
   }
 }
 
-export default Controller;
+export default RequestController;
