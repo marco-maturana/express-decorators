@@ -2,7 +2,7 @@ import axios from "axios";
 import server from "./src/server";
 import { expect } from "chai";
 
-describe("decorators tests", function () {
+describe("request decorators tests", function () {
   before(async function () {
     await server();
 
