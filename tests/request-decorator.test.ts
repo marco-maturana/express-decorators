@@ -1,11 +1,8 @@
 import axios from "axios";
-import server from "./src/server";
 import { expect } from "chai";
 
 describe("request decorators tests", function () {
-  before(async function () {
-    await server();
-
+  before(function () {
     axios.defaults.baseURL = 'http://localhost:8000/request-controller';
   })
 

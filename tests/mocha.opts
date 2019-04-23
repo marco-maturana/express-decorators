@@ -2,4 +2,4 @@
 --colors
 --ui bdd
 --require ts-node/register
-tests/*.test.ts
+tests/*.test.ts --recursive
