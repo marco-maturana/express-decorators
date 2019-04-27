@@ -1,5 +1,5 @@
 {
-  "name": "express-decorators",
+  "name": "@marcomaturana/express-decorators",
   "version": "1.0.0",
   "description": "decorators to use with express.js",
   "main": "dist/index.js",
